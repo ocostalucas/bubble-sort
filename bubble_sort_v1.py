@@ -22,7 +22,7 @@ for i in range(len(list)):
             list[j+1] = aux
             exchanges += 1
 
-runtime = time.time() * 1000 - start
+runtime = (time.time() - start)*1000
 
 print('Quantidade de quantidade de comparações: ', str(comparisons))
 print('Quantidade de trocas: ', str(exchanges))
