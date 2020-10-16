@@ -1,37 +1,32 @@
-# Bubble Sort version 1
+# Bubble Sort version 2
 import main
 import time
 import psutil
 import os
 
 start = time.time()
-pid = os.getpid()
-py = psutil.Process(pid)
-n = 20000
-main.write_file(n)
-lista = main.read_file(n)
+process = psutil.Process(os.getpid())
+
+list = main.read_file(10000)
 comparisons = 0
 exchanges = 0
 
-def bubble_sort_2(lista):
-    loops = len(lista) - 1
-    print("processing ... ")
-    for i in range(len(lista)):
-        for j in range(loops, i, -1):
-            if lista[j] < lista[j-1]:
-                aux = lista[j]
-                lista[j] = lista[j-1]
-                lista[j-1] = aux
-    print("finished")
-    return lista
 
-new_list = (bubble_sort_2(lista))
-end = time.time()
-runtime = round(end - start)
+loops = len(list) - 1
 
-print('Lista Ordenada', new_list)
-print("tamanho da lista", len(lista))
+for i in range(len(list)):
+    for j in range(loops, i, -1):
+        comparisons+=1
+        if list[j] < list[j-1]:
+            exchanges+=1
+            aux = list[j]
+            list[j] = list[j-1]
+            list[j-1] = aux
+
+runtime = (time.time() - start)*1000
+
 print('Quantidade de quantidade de comparações: ', str(comparisons))
 print('Quantidade de trocas: ', str(exchanges))
 print('Tempo de execução: ', str(runtime))
-print('Uso da CPU: ', str(py.cpu_percent()),'%')
+print('Uso da CPU: ', str(process.cpu_percent()),'%')
+print('Uso da memória: ', str(process.memory_percent()),'%')
