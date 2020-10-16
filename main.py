@@ -12,3 +12,7 @@ def read_file(value):
     data = f.read().split('\n')[:-1]
     f.close()
     return data
+
+write_file(100)
+write_file(10000)
+write_file(100000)
