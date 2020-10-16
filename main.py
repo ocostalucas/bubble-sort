@@ -12,6 +12,3 @@ def read_file(value):
     data = f.read().split('\n')[:-1]
     f.close()
     return data
-
-write_file(10)
-print(read_file(10))
