@@ -1,5 +1,8 @@
 # Bubble Sort version 1
 import main
+import time
+
+start = time.time()
 
 list = main.read_file(10)
 comparisons = 0
@@ -15,5 +18,8 @@ for i in range(len(list)):
             list[j+1] = aux
             exchanges += 1
 
+runtime = time.time() * 1000 - start
+
 print('Quantidade de quantidade de comparações: ', str(comparisons))
 print('Quantidade de trocas: ', str(exchanges))
+print('Tempo de execução ', str(runtime))
