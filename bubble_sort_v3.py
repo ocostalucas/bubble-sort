@@ -30,5 +30,5 @@ runtime = (time.time() - start)*1000
 print('Quantidade de quantidade de comparações: ', str(comparisons))
 print('Quantidade de trocas: ', str(exchanges))
 print('Tempo de execução: ', str(runtime))
-print('Uso da CPU: ', str(process.cpu_percent()),'%')
+print('Uso da CPU: ',str(psutil.cpu_percent(interval=1)),'%')
 print('Uso da memória: ', str(process.memory_percent()),'%')
