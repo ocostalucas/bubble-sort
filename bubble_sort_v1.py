@@ -1,8 +1,12 @@
 # Bubble Sort version 1
 import main
 import time
+import psutil
+import os
 
 start = time.time()
+pid = os.getpid()
+py = psutil.Process(pid)
 
 list = main.read_file(10)
 comparisons = 0
@@ -22,4 +26,5 @@ runtime = time.time() * 1000 - start
 
 print('Quantidade de quantidade de comparações: ', str(comparisons))
 print('Quantidade de trocas: ', str(exchanges))
-print('Tempo de execução ', str(runtime))
+print('Tempo de execução: ', str(runtime))
+print('Uso da CPU: ', str(py.cpu_times()[1]*100),'%')
